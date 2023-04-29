@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "umineko-steam-spanish"
+version = "0.1.0"
+description = ""
+authors = ["suraimu- <suraimuhyphen@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+deepl = "^1.14.0"
+python-dotenv = "^1.0.0"
+google-cloud-translate = "^3.11.1"
+ruff = "^0.0.263"
+
+[tool.ruff]
+ignore = ["E501"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
