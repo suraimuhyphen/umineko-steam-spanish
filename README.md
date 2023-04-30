@@ -10,16 +10,16 @@ This project is an attempt to translate [07th-Mod](https://github.com/07th-mod)'
 
 |     Script    |         Stage         | Status |
 |:-------------:|:---------------------:|:------:|
-| Question Arcs | Automatic Translation |   54%  |
+| Question Arcs |       In Review       |   WIP  |
 |  Answer Arcs  |      Development      |   0%   |
 
-The spanish game script is still being worked on. It's currently being translated  automatically little by little with the program found in `/question_arcs`.
+The spanish game script for the Question Arcs has successfully completed the Automatic Translation phase! The source code for the program that made this possible is in `/question_arcs`.
 
-When the first stage is 100% completed, the spanish script will be uploaded to the repository along with the instructions on how to use it.
+The script is still not out because I will personally make a quick review to mitigate the number of errors for the initial release. This review will not be exhaustive, as reading the entire novel takes a lot of time, but it will try to correct errors that repeat all over the script to make it more readable for the public.
 
-Keep in mind that initially there will be a lot of translation errors. But the script will be updated from time to time to fix those.
+Keep in mind that initially there will be a lot of translation errors, as this script comes from an automatic translation with no context given. But it will be updated from time to time to fix those.
 
-I would appreciate contributions of manual human checking, because my first review is surely going to leave many things unnoticed.
+I would very much appreciate contributions of manual human checking, because my first review is surely going to leave many things unnoticed.
 
 ## Español
 
@@ -27,13 +27,13 @@ Este proyecto es un intento para traducir el parche de Umineko de [07th-Mod](htt
 
 |     Guión     |          Fase         | Estado |
 |:-------------:|:---------------------:|:------:|
-| Question Arcs | Traducción automática |   54%  |
+| Question Arcs |      En Revisión      |   WIP  |
 |  Answer Arcs  |       Desarrollo      |   0%   |
 
-El guión en español todavía no está terminado. Actualmente se está traduciendo automáticamente poco a poco con el programa disponible en `/question_arcs`.
+¡El guión en español para los Question Arcs ha salido con éxito de la fase de Traducción Automática! El código fuente del programa que ha hecho esto posible está en `/question_arcs`.
 
-Cuando la primera fase se complete al 100%, se subirá el guión completo a este repositorio junto con las instrucciones de como utilizarlo.
+El guión aún no está disponible porque haré una revisión personal rápida para mitigar el número de errores del lanzamiento inicial. Esta revisión no será exhaustiva, ya que leer la novela entera toma mucho tiempo, pero intentaré corregir los errores que más se repitan por todo el guión para que sea más legible para el público.
 
-Ten en cuenta que inicialmente habrá muchos errores de traducción. Pero el script será actualizado de vez en cuando para arreglar estos errores.
+Ten en cuenta que inicialmente habrá muchos errores de traducción, ya que este guión procede inicialmente de una traducción automática que carece de contexto. Pero será actualizado de vez en cuando para arreglar estos errores.
 
-Agradecería contribuciones de comprobación manual humana, ya que la primera revisión que haga seguramente se deje muchas cosas.
+Agradecería mucho contribuciones de comprobación manual humana, ya que la primera revisión que haga seguramente se deje muchas cosas.
