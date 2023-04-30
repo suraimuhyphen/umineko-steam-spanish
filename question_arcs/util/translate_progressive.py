@@ -19,8 +19,11 @@ def translate_progressive(
     """
 
     for i in range(iterations):
-        translator.translate_script(lines, fresh=False)
+        finished_translating = translator.translate_script(lines, fresh=False)
         print_translation_status(translator.english_path, translator.data_path)
+        if finished_translating:
+            print("Translation is completed!")
+            break
         if i != iterations - 1:
             print(f"Another {lines} lines will be translated in {iteration_delay} seconds...")
             time.sleep(iteration_delay) 

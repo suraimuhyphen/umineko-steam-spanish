@@ -59,4 +59,8 @@ def post_fixes(sentence: str, line: str) -> str:
     post_fixed_sentence = post_fixed_sentence.replace("sweetfish", "de agua dulce")
     post_fixed_sentence = post_fixed_sentence.replace("Sweetfish", "de agua dulce")
 
+    # Golden Land
+
+    post_fixed_sentence = post_fixed_sentence.replace("Golden Land", "Tierra Dorada")
+
     return post_fixed_sentence

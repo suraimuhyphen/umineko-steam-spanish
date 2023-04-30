@@ -7,6 +7,7 @@ from google.cloud import translate_v2 as translate
 
 from util.fixes import post_fixes
 from util.logging import log_error
+from util.lines import get_total_lines_amount, get_translated_lines_amount
 
 load_dotenv('../.env')
 
@@ -25,7 +26,7 @@ class UminekoQuestionTranslator:
         self.data_path = data_path
         self.logs_path = logs_path
 
-    def translate_script(self, line_limit: int, fresh: bool=False):
+    def translate_script(self, line_limit: int, fresh: bool=False) -> bool:
         """Translates a number of lines from game script from english into spanish.
         
         This function will start translating from the first line it finds unprocessed,
@@ -34,6 +35,9 @@ class UminekoQuestionTranslator:
         Args:
             line_limit: Number of lines to translate.
             fresh: Flag that indicates if the translation should force start from the beginning.
+
+        Returns:
+            Boolean that tells if the translation is complete.
 
         """
 
@@ -59,14 +63,14 @@ class UminekoQuestionTranslator:
 
         partial_lines = {}
 
+        print("Loading already processed lines...")
+
         line_count = 0
         idx = 0
         while line_count < line_limit and idx < len(lines):
             if idx not in lines_history['lines']:
                 partial_lines.update({idx: lines[idx]})
                 line_count += 1
-            else:
-                print(f"Line {idx} has already been proccesed")
             idx += 1
 
         partial_lines_translated = {}
@@ -76,24 +80,15 @@ class UminekoQuestionTranslator:
                 translated_line = line
 
                 for sentence in sentences:
-                    
-                    try:
-                        translation_result = translator.translate(sentence, target_language='es', format_='text')
-                        translated_sentence = translation_result["translatedText"]
-                        translated_sentence = post_fixes(translated_sentence, line)
+                    translation_result = translator.translate(sentence, target_language='es', format_='text')
+                    translated_sentence = translation_result["translatedText"]
+                    translated_sentence = post_fixes(translated_sentence, line)
 
-                        translated_line = re.sub(re.escape(sentence), translated_sentence, translated_line)
-                        
-                        if translated_line == line:
-                            log_error(
-                                Exception("Sentence could not be translated"),
-                                translated_sentence,
-                                self.logs_path
-                            )
-                        
-                    except ValueError as ve:
+                    translated_line = re.sub(re.escape(sentence), translated_sentence, translated_line)
+                    
+                    if translated_sentence == sentence:
                         log_error(
-                            ve,
+                            Exception("Sentence could not be translated"),
                             translated_sentence,
                             self.logs_path
                         )
@@ -103,7 +98,7 @@ class UminekoQuestionTranslator:
                     json.dump(lines_history, outfile, indent=4)
 
                 partial_lines_translated.update({idx: translated_line})
-                print(f"Translating: {i+1}/{len(partial_lines)}")      
+                print(f"Translated: {i+1}/{len(partial_lines)} (Line {idx})")      
 
         parsed_game_script = game_script
         for i, (line, line_translated) in enumerate(zip(partial_lines.values(), partial_lines_translated.values())):
@@ -115,3 +110,8 @@ class UminekoQuestionTranslator:
 
         for idx, line_translated in partial_lines_translated.items():
             print(f"{idx}. {line_translated}")
+
+        total_lines_amount = get_total_lines_amount(self.english_path)
+        translated_lines_amount = get_translated_lines_amount(self.data_path)
+
+        return translated_lines_amount == total_lines_amount
