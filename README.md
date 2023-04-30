@@ -10,7 +10,7 @@ This project is an attempt to translate [07th-Mod](https://github.com/07th-mod)'
 
 |     Script    |         Stage         | Status |
 |:-------------:|:---------------------:|:------:|
-| Question Arcs | Automatic Translation |   35%  |
+| Question Arcs | Automatic Translation |   54%  |
 |  Answer Arcs  |      Development      |   0%   |
 
 The spanish game script is still being worked on. It's currently being translated  automatically little by little with the program found in `/question_arcs`.
@@ -27,7 +27,7 @@ Este proyecto es un intento para traducir el parche de Umineko de [07th-Mod](htt
 
 |     Guión     |          Fase         | Estado |
 |:-------------:|:---------------------:|:------:|
-| Question Arcs | Traducción automática |   35%  |
+| Question Arcs | Traducción automática |   54%  |
 |  Answer Arcs  |       Desarrollo      |   0%   |
 
 El guión en español todavía no está terminado. Actualmente se está traduciendo automáticamente poco a poco con el programa disponible en `/question_arcs`.
